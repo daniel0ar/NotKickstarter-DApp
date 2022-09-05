@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Image, Menu } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Image, Menu } from 'semantic-ui-react';
+import { Link } from '../routes';
 
 export default class Header extends Component {
   state = {}
@@ -11,25 +12,15 @@ export default class Header extends Component {
 
     return (
       <Menu style={{marginTop:"20px"}} size='massive' stackable>
-        <Menu.Item>
-            <Image src='/assets/logo.png' fluid></Image>
-        </Menu.Item>
+        <Link route='/'>
+            <a className='item'>
+              <Image src='/assets/logo.png' fluid></Image>
+            </a>
+        </Link>
         <Menu.Menu position='right'>
-          <Menu.Item
-            name='campaigns'
-            active={activeItem === 'campaigns'}
-            onClick={this.handleItemClick}
-          >
-            Campaigns
-          </Menu.Item>
-
-          <Menu.Item
-            name='requests'
-            active={activeItem === 'requests'}
-            onClick={this.handleItemClick}
-          >
-            Requests
-          </Menu.Item>
+          <Link route='/'>
+              <a className='item'>Campaigns</a>
+          </Link>
         </Menu.Menu>
       </Menu>
     )

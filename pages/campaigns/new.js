@@ -14,7 +14,7 @@ class CampaignNew extends Component {
 
   onSubmit = async (event) => {
     event.preventDefault();
-    this.setState({loading:true, errorMessage:''});
+    this.setState({ loading: true, errorMessage: '' });
 
     try {
       const accounts = await web3.eth.getAccounts();
@@ -23,14 +23,14 @@ class CampaignNew extends Component {
         .send({
           from: accounts[0]
         });
-      
+
       Router.pushRoute('/');
     } catch (error) {
-      this.setState({errorMessage: error.message});
+      this.setState({ errorMessage: error.message });
     }
-    this.setState({loading:false});
+    this.setState({ loading: false });
   };
-  
+
   render() {
     return (
       <Layout>
@@ -38,12 +38,12 @@ class CampaignNew extends Component {
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>{/*False when empty string*/}
           <Form.Field>
             <label>Minimum Contribution</label>
-            <Input 
-              label="Wei" 
-              labelPosition="right" 
+            <Input
+              label="Wei"
+              labelPosition="right"
               value={this.state.minimumContribution}
-              onChange={event => 
-                this.setState({minimumContribution: event.target.value})}/>
+              onChange={event =>
+                this.setState({ minimumContribution: event.target.value })} />
           </Form.Field>
           <Button primary loading={this.state.loading}>Create!</Button>
           <Message

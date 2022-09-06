@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Card, Grid } from "semantic-ui-react";
+import { Card, Grid, Button } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 import Campaign from "../../ethereum/campaign";
 import web3 from "../../ethereum/web3";
 import ContributeForm from "../../components/ContributeForm";
+import { Link } from '../../routes';
 
 class CampaignDetails extends Component {
-    static async getInitialProps(props) {
+    static async getInitialProps(props) { //to get the address from the address bar (thanks to react routes)
         const campaign = Campaign(props.query.address);
 
         const summary = await campaign.methods.getSummary().call();
@@ -33,21 +34,21 @@ class CampaignDetails extends Component {
 
         const items = [
             {
-                header: web3.utils.fromWei(balance, 'ether')+' ETH',
+                header: web3.utils.fromWei(balance, 'ether') + ' ETH',
                 description: 'The amount in Ether that this campaign has raised',
                 meta: 'Total Raised'
             },
             {
-              header: manager,
-              description:
-                'The creator of the campaign who can create requests',
-              meta: 'Address of manager',
-              style: { overflowWrap: 'break-word'}
+                header: manager,
+                description:
+                    'The creator of the campaign who can create requests',
+                meta: 'Address of manager',
+                style: { overflowWrap: 'break-word' }
             },
             {
-                header: web3.utils.fromWei(minimumContribution, 'ether')+' ETH',
+                header: web3.utils.fromWei(minimumContribution, 'ether') + ' ETH',
                 description: 'The minimum ammount that the owner of the campaign has set for a contribution',
-                meta: 'Minimum Contribution' 
+                meta: 'Minimum Contribution'
             },
             {
                 header: requestsCount,
@@ -69,12 +70,21 @@ class CampaignDetails extends Component {
             <Layout>
                 <h3>Campaign Details</h3>
                 <Grid>
-                    <Grid.Column width={12}>
-                        {this.renderCards()}
-                    </Grid.Column>
-                    <Grid.Column width={4}>
-                        <ContributeForm address={this.props.address}></ContributeForm>
-                    </Grid.Column>
+                    <Grid.Row>
+                        <Grid.Column width={12}>
+                            {this.renderCards()}
+                            <br></br>
+                            <Link route={`/campaigns/${this.props.address}/requests`}>
+                                <a>
+                                    <Button primary>View Requests</Button>
+                                </a>
+                            </Link>
+                        </Grid.Column>
+                        <Grid.Column width={4}>
+                            <ContributeForm address={this.props.address}></ContributeForm>
+                        </Grid.Column>
+                    </Grid.Row>
+
                 </Grid>
             </Layout>
         );

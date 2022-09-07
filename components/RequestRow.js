@@ -26,16 +26,22 @@ class RequestRow extends Component {
     render(){
         const { Row, Cell } = Table; //destructure to avoid Table.X call everytime
         const { id, contributors, request} = this.props;
+        const readyToFinalize = request.approvalCount > contributors/2;
+
         return (
-            <Row>
+            <Row disabled={request.complete}>
                 <Cell>{id}</Cell>
                 <Cell>{request.description}</Cell>
                 <Cell>{web3.utils.fromWei(request.value,'ether')}</Cell>
                 <Cell>{request.recipient}</Cell>
                 <Cell>{request.approvalCount}/{contributors}</Cell>
                 <Cell>
-                    <Button color='green' inverted onClick={this.onApprove}>Approve</Button>
-                    <Button primary onClick={this.onFinalize}>Finalize</Button>
+                    {request.complete ? null : ( //show approve request button only if its not ready (has not enoguh approvals)
+                        <Button color='green' inverted onClick={this.onApprove}>Approve</Button>
+                    )}
+                    {request.complete ? null : ( //show approve request button only if its not ready (has not enoguh approvals)
+                        <Button primary onClick={this.onFinalize} disabled={!readyToFinalize}>Finalize</Button>
+                    )}
                 </Cell>
 
             </Row>

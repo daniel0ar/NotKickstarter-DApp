@@ -68,6 +68,9 @@ class CampaignDetails extends Component {
     render() {
         return (
             <Layout>
+                <Link route={'/'}>
+                    <a>&#60; Go Back</a>
+                </Link>
                 <h3>Campaign Details</h3>
                 <Grid>
                     <Grid.Row>

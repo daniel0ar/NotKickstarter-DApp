@@ -1,12 +1,14 @@
 {
-  "name": "kickstart",
+  "name": "notkickstarter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "deploy": "node ./ethereum/deploy.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "next build && next export",
+    "start": "next start"
   },
   "author": "",
   "license": "ISC",

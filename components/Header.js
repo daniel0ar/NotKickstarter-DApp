@@ -14,7 +14,7 @@ export default class Header extends Component {
       <Menu style={{marginTop:"20px"}} size='massive' stackable>
         <Link route='/'>
             <a className='item'>
-              <Image src='/assets/logo.png' fluid></Image>
+              <Image src='/projects/notkickstarter/assets/logo.png' fluid></Image>
             </a>
         </Link>
         <Menu.Menu position='right'>

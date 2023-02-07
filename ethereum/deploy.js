@@ -5,7 +5,7 @@ const compiledFactory = require('./build/CampaignFactory.json');
 const provider = new HDWalletProvider(
   'fuel risk coin outside half draw become color banner crucial agent weapon',
   // remember to change this to your own phrase!
-  'https://rinkeby.infura.io/v3/15c1d32581894b88a92d8d9e519e476c'
+  'https://goerli.infura.io/v3/b32b762d2e49492484aae05c2880c616'
   // remember to change this to your own endpoint!
 );
 const web3 = new Web3(provider);

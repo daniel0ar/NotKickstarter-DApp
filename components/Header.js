@@ -12,13 +12,13 @@ export default class Header extends Component {
 
     return (
       <Menu style={{marginTop:"20px"}} size='massive' stackable>
-        <Link route='/'>
+        <Link legacyBehavior route='/'>
             <a className='item'>
-              <Image src='/projects/notkickstarter/assets/logo.png' fluid></Image>
+              <Image src='./assets/logo.png' fluid></Image>
             </a>
         </Link>
         <Menu.Menu position='right'>
-          <Link route='/'>
+          <Link legacyBehavior route='/'>
               <a className='item'>Campaigns</a>
           </Link>
         </Menu.Menu>

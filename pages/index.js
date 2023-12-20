@@ -16,7 +16,7 @@ class CampaignIndex extends Component {
             return {
                 header: address,
                 description: (
-                    <Link route={`/campaigns/${address}`}>
+                    <Link legacyBehavior route={`/campaigns/${address}`}>
                         <a>View Campaign</a>
                     </Link>
                 ),
@@ -33,7 +33,7 @@ class CampaignIndex extends Component {
                 <div>
                     <h1>All campaigns:</h1>
                     <br></br>
-                    <Link route='campaigns/new'>
+                    <Link legacyBehavior route='campaigns/new'>
                         <a>
                             <Button content="New Campaign" icon="add" primary></Button>
                         </a>

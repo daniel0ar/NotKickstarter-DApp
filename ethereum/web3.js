@@ -1,4 +1,5 @@
 import Web3 from "web3";
+require('dotenv').config();
      
 let web3;
  
@@ -9,7 +10,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
 } else {
   // We are on the server *OR* the user is not running metamask
   const provider = new Web3.providers.HttpProvider(
-    "https://goerli.infura.io/v3/b32b762d2e49492484aae05c2880c616"
+    process.env.GOERLI_RPC_URL
   );
   web3 = new Web3(provider);
 }

@@ -68,7 +68,7 @@ class CampaignDetails extends Component {
     render() {
         return (
             <Layout>
-                <Link route={'/'}>
+                <Link legacyBehavior route={'/'}>
                     <a>&#60; Go Back</a>
                 </Link>
                 <h3>Campaign Details</h3>
@@ -77,7 +77,7 @@ class CampaignDetails extends Component {
                         <Grid.Column width={12}>
                             {this.renderCards()}
                             <br></br>
-                            <Link route={`/campaigns/${this.props.address}/requests`}>
+                            <Link legacyBehavior route={`/campaigns/${this.props.address}/requests`}>
                                 <a>
                                     <Button primary>View Requests</Button>
                                 </a>

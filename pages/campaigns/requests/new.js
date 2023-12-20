@@ -41,7 +41,7 @@ class NewRequest extends Component {
     render() {
         return (
             <Layout>
-                <Link route={`/campaigns/${this.props.address}/requests`}>
+                <Link legacyBehavior route={`/campaigns/${this.props.address}/requests`}>
                     <a>&#60; Go Back</a>
                 </Link>
                 <h3>Create a Request</h3>

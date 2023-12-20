@@ -41,11 +41,11 @@ class RequestIndex extends Component {
 
         return (
             <Layout>
-                <Link route={`/campaigns/${this.props.address}`}>
+                <Link legacyBehavior route={`/campaigns/${this.props.address}`}>
                     <a>&#60; Go Back</a>
                 </Link>
                 <h3>Requests of Campaign</h3>
-                <Link route={`/campaigns/${this.props.address}/requests/new`}>
+                <Link legacyBehavior route={`/campaigns/${this.props.address}/requests/new`}>
                     <a>
                         <Button primary>Add Requets</Button>
                     </a>

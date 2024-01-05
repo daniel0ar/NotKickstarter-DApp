@@ -26,7 +26,7 @@ class RequestRow extends Component {
     render(){
         const { Row, Cell } = Table; //destructure to avoid Table.X call everytime
         const { id, contributors, request} = this.props;
-        const readyToFinalize = request.approvalCount > contributors/2;
+        const readyToFinalize = Number(request.approvalCount) > Number(contributors)/2;
 
         return (
             <Row disabled={request.complete}>

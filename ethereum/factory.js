@@ -4,7 +4,7 @@ require('dotenv').config();
  
 const instance = new web3.eth.Contract(
   CampaignFactory.abi,
-  process.env.DEPLOYED_CONTRACT_ADDRESS
+  "0xA8fDA5B2eff78b5f3B4cA6B6a9b81990a670Bd74"
 );
  
 export default instance;
